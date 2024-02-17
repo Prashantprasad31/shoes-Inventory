@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load static %}
+   {% include "myapp/home.html" %}
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+   <div class="navbar"></div><br>
+   <center>
+      <form action="/product/search" class="search">
+         <label for="">SEARCH:</label>
+         <input type="text" name="sku"/>
+         <input type="submit" />
+      </form><br>
+   </center>
+   <div class="container">
+      <div class="filter_area" style="color: aqua;">
+         <div class="by_category">
+            <h2>Filter By Categoty</h2>
+            <ul class="list">
+               <li><a href="/product/product">All</a></li>
+               <li><a href="/product/filter/1">By Sneaker/shoes</a></li>
+               <li><a href="/product/filter/2">By Juti</a></li>
+               <li><a href="/product/filter/3">By Bags</a></li>
+               <li><a href="/product/filter/4">By Boots/Sandals</a></li>
+               <li><a href="/product/filter/5">By Belts</a></li>
+            </ul>
+         </div>
+<div>------------------------------------------------</div>
+         <div class="by_price">
+            <h2>Filter By Price</h2>
+            <form action="/product/pricer">
+               <label for="">Min:</label>
+               <input type="number" name="min"> <br><br>
+               <label for="">Max:</label>
+               <input type="number" name="max"> <br><br>
+               <input type="submit" style="background-color: rgb(255, 247, 0);">
+            </form>
+         </div>
+<div>------------------------------------------------</div>
+         <div class="sort_by_price" >
+            <h2>Sort By Price</h2>
+            <ul class="list">
+               <li><a href="/product/sort/desc">High to Low</a></li>
+               <li><a href="/product/sort/asc">Low to High</a></li>
+            </ul>
+         </div>
+         <!-- <div class="by_rating">
+            <h2>Sort By Rating</h2>
+            <ul>
+               <li><a href="/product/rate/3">3 and above</a></li>
+               <li><a href="/product/rate/4">4 and above</a></li>
+            </ul>
+         </div> -->
+<div>------------------------------------------------</div>
+      </div>
+      <div class="product_area">
+        {% for product in products %}
+         <div class="card">
+            <div class="card-items" style="background-color: white;">
+               <!-- <img src="{% static 'img/shirt.webp' %}" alt=""> -->
+               <img src="http://127.0.0.1:8000/product/media/{{product.image}}" alt="">
+               <div class="card-text">
+                  <p>SKU: &nbsp{{product.sku | upper}}</p>
+                  <p>NAME:&nbsp{{product.name | upper}}</p>
+                  <p>PRICE:&nbsp{{product.price}}</p>
+                  <p>SIZE:&nbsp{{product.size}}</p>
+                  <button id="add_to_cart_btn"><a href="/product/add_to_cart/{{product.id}}">Add to Cart</a></button>
+                  <button id="buy_now_btn"><a href="/product/product_detail/{{product.id}}">View More</a></button>
+                  <!-- <button id="buy_now_btn"><a href="">Buy Now</a></button> -->
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</body>
+</html>

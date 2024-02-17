@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sevillana&display=swap" rel="stylesheet">
+    <style>
+        header {
+            width: 100%;
+            height: 50px;
+            background-color: #2c4766;
+            /* position: fixed; */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        header * {
+            display: inline;
+        }
+        header li {
+            margin: 20px;
+        }
+        header li a {
+            color:  rgb(209, 247, 255);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1 style="font-family: 'Dancing Script', cursive;">welcome {{user_data}}</h1> -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/product/product">Home</a></li>
+                <li><a href="/product/product">Product</a></li>
+                
+                {% if user.is_authenticated %}
+                    <li><a href="/user/login">Logout</a></li>
+                    <li><a href="/product/cartview">view cart <span style="background-color: white;">{{cart_count}}</span></a></li>
+                {% else %}
+                    <li><a href="/user/login">Login</a></li>
+                    <li><a href="/user/register">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

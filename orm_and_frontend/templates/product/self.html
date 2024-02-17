@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="margin-left:20%;">
+    <div class="card">
+        <div class="card-items">
+           <!-- <img src="{% static 'img/shirt.webp' %}" alt=""> -->
+           <img src="http://127.0.0.1:8000/product/media/{{product.image}}" alt="">
+           <div class="card-text" style="color: white;">
+              <p>{{product.name | upper}}</p>
+              <p>{{product.price}}</p>
+              <p>{{product.sku}}</p>
+              <p>{{product.details}}</p>
+              {% if product.category == 1%}
+              <p>Sneaker</p>
+              {% elif product.category == 2%}
+              <p>Juti</p>
+              {% elif product.category == 3%}
+              <p>Bags</p>
+              {% elif product.category == 4%}
+              <p>Boots/Sandals</p>
+              {% else %}
+              <p>Belts</p>
+              {% endif %}
+              <!-- <button id="add_to_cart_btn"><a href="/product/cart.html">Add to Cart</a></button> -->
+              <button id="buy_now_btn"><a href="http://127.0.0.1:8000/product/cartview/">buy now</a></button>
+           </div>
+        </div>
+     </div>
+</body>
+</html>

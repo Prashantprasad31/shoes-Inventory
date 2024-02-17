@@ -1,0 +1,159 @@
+body {
+   background-color: rgb(15, 0, 46);
+}
+
+.container {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+}
+
+.filter_area {
+   width: 20%;
+   display: flex;
+   /* background-color: aqua; */
+   border: 1px dashed #0ef;
+   flex-direction: column;
+   padding: 10px;
+
+}
+
+.product_area {
+   width: 80%;
+   display: flex;
+   margin-left: 2px;
+   /* border: 1px dashed black; */
+   flex-wrap: wrap;
+
+}
+
+.card {
+   display: flex;
+   flex-direction: column;
+   width: 25%;
+
+}
+
+.card .card-items {
+   border: 1px solid black;
+   padding: 10px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   margin: 10px;
+   align-items: center;
+   justify-content: center;
+   box-shadow: 3px 5px 5px #0ef;
+}
+
+.card .card-items img {
+   border-radius: 5%;
+   height: 150px;
+   width: 150px;
+   padding: 5px;
+}
+
+.card .card-items button {
+   border-radius: 20px;
+   padding: 12px;
+   border: none;
+}
+
+.card .card-items #add_to_cart_btn {
+   background-color: #F7CA00;
+}
+
+.card .card-items #buy_now_btn {
+   background-color: #FFA41C;
+}
+
+.card .card-items button a {
+   text-decoration: none;
+   color: black;
+}
+
+.card .card-items .card-text {
+   margin-left: 10px;
+}
+
+
+
+
+
+.list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.list li {
+   margin-bottom: 0px;
+}
+
+.list li a {
+   text-decoration: none;
+   color: aqua;
+   font-size: 18px;
+}
+
+.list li a:hover {
+   color: rgb(51, 255, 0);
+}
+
+/* Styling for the search form */
+.search {
+   margin-bottom: 10px;
+}
+
+.search label {
+   color: aqua;
+   font-size: 18px;
+}
+
+.search input[type="text"],
+.search input[type="submit"] {
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   font-size: 18px;
+}
+
+.search input[type="text"] {
+   width: 250px;
+}
+
+.search input[type="submit"] {
+   background-color: aqua;
+   color: black;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.search input[type="submit"]:hover {
+   background-color: rgb(26, 255, 0);
+}
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+   .container {
+      flex-direction: row;
+   }
+
+   .filter_area {
+      width: 30%;
+      margin-bottom: 20px;
+   }
+
+   .product_area {
+      width: 100%;
+   }
+
+   .card {
+      width: 48%;
+      /* Adjust card width for tablet screens */
+   }
+
+}
